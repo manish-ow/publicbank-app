@@ -1,0 +1,37 @@
+{
+    "totalBalance": 375691.50,
+    "personal": {
+        "savings": 54230.10,
+        "fixedDeposits": 150000.00,
+        "investments": 171461.40
+    },
+    "business": {
+        "currentSavings": 54230.10,
+        "fixedDepositsInvestments": 321461.40,
+        "cashBalance": 54230.10,
+        "forecast30Days": 58540.60,
+        "forecast60Days": 64521.70,
+        "toCollect": 4800.50,
+        "toPay": 4640.00,
+        "receivablesList": [
+            {
+                "name": "Young-In Traders Sdn Bhd",
+                "amount": 2800.00
+            },
+            {
+                "name": "Atmosphere Bistro Sdn Bhd",
+                "amount": 2000.50
+            }
+        ],
+        "payablesList": [
+            {
+                "name": "Meat and Vege Pte Ltd",
+                "amount": 3100.00
+            },
+            {
+                "name": "Fresh Produce Co",
+                "amount": 1540.00
+            }
+        ]
+    }
+}

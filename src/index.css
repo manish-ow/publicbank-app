@@ -1,0 +1,171 @@
+@import './theme.css';
+
+/* Utility & Card Components used across Personal & Business */
+.section-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 6px solid var(--primary-red);
+}
+
+.section-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.section-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.section-card .link {
+  color: var(--primary-red);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Specific view styling */
+.recommendations-wrapper {
+  background-color: #f7dede;
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.recommendations-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.sme-welcome {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.insights-banner {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--primary-red);
+}
+
+.insights-banner .btn-view {
+  display: block;
+  text-align: center;
+  border: 1px solid var(--primary-red);
+  color: var(--primary-red);
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.insights-banner .btn-view:active {
+  background: var(--primary-red);
+  color: var(--white);
+}
+
+.assets-list {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-left: 6px solid var(--primary-red);
+}
+
+.assets-list h3 {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+}
+
+.asset-item {
+  margin-bottom: 15px;
+}
+
+.asset-item:last-child {
+  margin-bottom: 0;
+}
+
+.asset-item .label {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.asset-item .value {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.trend-green {
+  color: var(--success-green);
+  font-weight: 600;
+}
+
+.trend-arrow {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--white);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.bottom-nav-item.active {
+  color: var(--primary-red);
+}
+
+.bottom-nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
