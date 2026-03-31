@@ -1,8 +1,7 @@
 import React from 'react';
 import { text } from '../locales/en';
-import data from '../data.json';
 
-export default function BusinessOverview({ onBack, onNavigate }) {
+export default function BusinessOverview({ onBack, onNavigate, liveData: data }) {
     return (
         <div style={{ paddingBottom: '20px' }}>
             <div
@@ -48,32 +47,38 @@ export default function BusinessOverview({ onBack, onNavigate }) {
                 <div style={{ marginBottom: '15px' }}>
                     <div style={{ fontSize: '0.85rem', fontWeight: '600' }}>{text.toCollect}</div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{text.currency} {data.business.toCollect.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-                    <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px', marginTop: '15px', fontSize: '0.8rem', color: 'var(--text-secondary)', position: 'relative' }}>
-                        You received a recent payment of {text.currency} {data.business.receivablesList[0].amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} from {data.business.receivablesList[0].name}.
-                        <div style={{
-                            position: 'absolute',
-                            right: '-5px',
-                            top: '-25px',
-                            background: '#fef08a',
-                            color: '#854d0e',
-                            padding: '4px 8px',
-                            borderRadius: '4px',
-                            fontSize: '0.75rem',
-                            fontWeight: 'bold',
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                        }}>
-                            Payment received from MNC
+                    {data.business.lastTransaction ? (
+                        <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px', marginTop: '15px', fontSize: '0.8rem', color: 'var(--text-secondary)', position: 'relative' }}>
+                            You received a recent payment of {text.currency} {data.business.lastTransaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} from eSolution delta pte ltd.
                             <div style={{
                                 position: 'absolute',
-                                bottom: '-4px',
-                                right: '20px',
-                                width: '8px',
-                                height: '8px',
+                                right: '-5px',
+                                top: '-25px',
                                 background: '#fef08a',
-                                transform: 'rotate(45deg)'
-                            }}></div>
+                                color: '#854d0e',
+                                padding: '4px 8px',
+                                borderRadius: '4px',
+                                fontSize: '0.75rem',
+                                fontWeight: 'bold',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                            }}>
+                                New Incoming Transfer
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '-4px',
+                                    right: '20px',
+                                    width: '8px',
+                                    height: '8px',
+                                    background: '#fef08a',
+                                    transform: 'rotate(45deg)'
+                                }}></div>
+                            </div>
                         </div>
-                    </div>
+                    ) : (
+                        <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px', marginTop: '15px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                            You received a recent payment of {text.currency} {data.business.receivablesList[0].amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} from {data.business.receivablesList[0].name}.
+                        </div>
+                    )}
                 </div>
 
                 <div>

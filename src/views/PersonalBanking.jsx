@@ -1,8 +1,7 @@
 import React from 'react';
 import { text } from '../locales/en';
-import data from '../data.json';
 
-export default function PersonalBanking() {
+export default function PersonalBanking({ liveData: data }) {
     return (
         <div>
             <div className="recommendations-wrapper">

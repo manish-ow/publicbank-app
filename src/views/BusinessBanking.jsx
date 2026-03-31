@@ -3,21 +3,20 @@ import { text } from '../locales/en';
 import BusinessOverview from './BusinessOverview';
 import CashBalanceForecast from './CashBalanceForecast';
 import AccountReceivables from './AccountReceivables';
-import data from '../data.json';
 
-export default function BusinessBanking() {
+export default function BusinessBanking({ liveData: data }) {
     const [currentView, setCurrentView] = useState('dashboard');
 
     if (currentView === 'overview') {
-        return <BusinessOverview onBack={() => setCurrentView('dashboard')} onNavigate={setCurrentView} />;
+        return <BusinessOverview onBack={() => setCurrentView('dashboard')} onNavigate={setCurrentView} liveData={data} />;
     }
 
     if (currentView === 'forecast') {
-        return <CashBalanceForecast onBack={() => setCurrentView('overview')} />;
+        return <CashBalanceForecast onBack={() => setCurrentView('overview')} liveData={data} />;
     }
 
     if (currentView === 'receivables') {
-        return <AccountReceivables onBack={() => setCurrentView('overview')} />;
+        return <AccountReceivables onBack={() => setCurrentView('overview')} liveData={data} />;
     }
 
     return (

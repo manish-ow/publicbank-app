@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { text } from '../locales/en';
-import data from '../data.json';
 
-export default function AccountReceivables({ onBack }) {
+export default function AccountReceivables({ onBack, liveData: data }) {
     const [activeTab, setActiveTab] = useState('receivables');
 
     const isReceivables = activeTab === 'receivables';

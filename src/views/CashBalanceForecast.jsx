@@ -1,8 +1,7 @@
 import React from 'react';
 import { text } from '../locales/en';
-import data from '../data.json';
 
-export default function CashBalanceForecast({ onBack }) {
+export default function CashBalanceForecast({ onBack, liveData: data }) {
     return (
         <div style={{ paddingBottom: '20px' }}>
             <div style={{ padding: '10px 0', display: 'flex', alignItems: 'center', marginBottom: '15px', cursor: 'pointer', color: 'var(--primary-red)', fontWeight: 'bold' }} onClick={onBack}>
