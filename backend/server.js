@@ -1,7 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import { createServer } from 'http';
-import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 
@@ -11,17 +9,18 @@ import Account from './models/Account.js';
 import Transaction from './models/Transaction.js';
 
 const app = express();
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['http://localhost:5173', 'http://localhost:3000'];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 app.use(express.json());
-
-const httpServer = createServer(app);
-const io = new Server(httpServer, {
-    cors: { origin: '*' }
-});
-
-io.on('connection', (socket) => {
-    console.log('Client connected:', socket.id);
-});
 
 app.get('/api/balance', async (req, res) => {
     try {
@@ -84,12 +83,6 @@ async function handleTransactionMessage({ message }) {
                 );
 
                 console.log(`[Consumer] Updated balance for 312345678901 to ${account.balance}`);
-
-                io.emit('balance_updated', {
-                    totalBalance: account.balance,
-                    business: { cashBalance: account.balance },
-                    lastTransaction: { amount: event.amount, from: event.fromAccount, to: event.toAccount, reference: event.reference }
-                });
             } else {
                 console.log(`[Consumer] Account not found: 312345678901`);
             }
@@ -120,7 +113,7 @@ async function start() {
     });
 
     const PORT = process.env.PORT || 3001;
-    httpServer.listen(PORT, () => {
+    app.listen(PORT, () => {
         console.log(`Backend server listening on port ${PORT}`);
     });
 }

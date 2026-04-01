@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { text } from '../locales/en';
 import data from '../data.json';
 
-export default function Header({ activeTab, setActiveTab, notifications = [] }) {
-    const [showNotifications, setShowNotifications] = useState(false);
+export default function Header({ activeTab, setActiveTab }) {
     return (
         <div className="header-top">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -24,41 +23,6 @@ export default function Header({ activeTab, setActiveTab, notifications = [] }) 
                         }}>
                             {text.publicBank}
                         </span>
-                    </div>
-
-                    <div style={{ position: 'relative' }}>
-                        <div onClick={() => setShowNotifications(!showNotifications)} style={{ cursor: 'pointer', position: 'relative' }}>
-                            <i className="fas fa-bell" style={{ fontSize: '1.4rem', color: 'white' }}></i>
-                            {notifications.length > 0 && (
-                                <div style={{
-                                    position: 'absolute', top: -4, right: -4, width: 10, height: 10,
-                                    backgroundColor: '#fff', borderRadius: '50%', border: '2px solid #b31b1b'
-                                }}></div>
-                            )}
-                        </div>
-                        {showNotifications && (
-                            <div style={{
-                                position: 'absolute', top: '30px', right: 0, width: '280px',
-                                background: 'white', color: '#333', borderRadius: '8px', zIndex: 1000,
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.2)', padding: '15px', textAlign: 'left'
-                            }}>
-                                <h4 style={{ margin: '0 0 10px 0', borderBottom: '1px solid #eee', paddingBottom: '5px' }}>Notifications</h4>
-                                {notifications.length > 0 ? notifications.map((notif, index) => (
-                                    <div key={index} style={{ fontSize: '0.9rem', marginBottom: '8px', padding: '10px', background: '#f9f9f9', borderLeft: '4px solid #b31b1b', borderRadius: '4px' }}>
-                                        <div style={{ fontWeight: 'bold', color: '#b31b1b' }}>{notif.from === '312345678901' ? 'Payment Sent' : 'Payment Received'}</div>
-                                        <div style={{ marginTop: '5px' }}>Amount: <span style={{ fontWeight: 'bold' }}>MYR {Number(notif.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span></div>
-                                        {notif.from === '312345678901' ? (
-                                            <div style={{ color: '#555', fontSize: '0.8rem', marginTop: '2px' }}>To: {notif.to}</div>
-                                        ) : (
-                                            <div style={{ color: '#555', fontSize: '0.8rem', marginTop: '2px' }}>From: {notif.from}</div>
-                                        )}
-                                        <div style={{ color: '#555', fontSize: '0.8rem' }}>Ref: {notif.reference}</div>
-                                    </div>
-                                )) : (
-                                    <div style={{ fontSize: '0.9rem', color: '#666' }}>No new notifications</div>
-                                )}
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>
