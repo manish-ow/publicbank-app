@@ -61,10 +61,10 @@ export default function BusinessInsights({ onBack, liveData: data }) {
 
             <div className="section-card" style={{ borderLeft: '4px solid #b31b1b' }}>
                 <h3 style={{ fontSize: '1rem', color: 'var(--primary-red)', marginBottom: '12px' }}>
-                    <i className="fas fa-hand-holding-usd" style={{ marginRight: '8px' }}></i> Professional Financing
+                    <i className="fas fa-hand-holding-usd" style={{ marginRight: '8px' }}></i>  Financing Options
                 </h3>
                 <p style={{ fontSize: '0.85rem', lineHeight: '1.5', color: 'var(--text-primary)' }}>
-                    For larger capital-intensive payables, consider <strong>Supply Chain Financing</strong> to preserve your working capital:
+                    For larger capital-intensive payables, consider <strong> Payables Financing</strong> to preserve your working capital:
                 </p>
 
                 <div style={{

@@ -54,7 +54,7 @@ export default function BusinessBanking({ liveData: data }) {
                 <h3>{text.assetsHeading}</h3>
                 <div className="asset-item">
                     <div className="label">{text.totalAvailableBalance}</div>
-                    <div className="value" style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{text.currency} {data.totalBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                    <div className="value" style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{text.currency} {data.business.totalBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                 </div>
                 <div className="asset-item">
                     <div className="label">{text.currentSavingsAccounts}</div>
@@ -136,6 +136,65 @@ export default function BusinessBanking({ liveData: data }) {
                         )}
                     </label>
                 </div>
+
+                {uploadedFileName && (
+                    <div style={{
+                        marginTop: '25px',
+                        padding: '20px',
+                        background: '#ffffff',
+                        borderRadius: '16px',
+                        border: '1px solid #e2e8f0',
+                        position: 'relative'
+                    }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+                            <h3 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: '800' }}>Invoice Details</h3>
+                            <div style={{
+                                background: 'white',
+                                color: '#64748b',
+                                padding: '4px 10px',
+                                borderRadius: '20px',
+                                fontSize: '0.65rem',
+                                fontWeight: 'bold',
+                                border: '1px solid #e2e8f0',
+                                letterSpacing: '0.5px'
+                            }}>
+                                SOURCE: GEMINI-PDF
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+                            <div>
+                                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Vendor</div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>Very Delicious Restaurant</div>
+                            </div>
+                            <div>
+                                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Invoice Number</div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>VDR241101</div>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+                            <div>
+                                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Invoice Date</div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>November 14, 2024</div>
+                            </div>
+                            <div>
+                                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Due Date</div>
+                                <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>November 30, 2024</div>
+                            </div>
+                        </div>
+
+                        <div style={{ marginBottom: '20px' }}>
+                            <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Account Number</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>3123 4567 89 01</div>
+                        </div>
+
+                        <div>
+                            <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '4px' }}>Invoice Total</div>
+                            <div style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--text-primary)' }}>MYR 4,100.00</div>
+                        </div>
+                    </div>
+                )}
             </div>
 
         </div>

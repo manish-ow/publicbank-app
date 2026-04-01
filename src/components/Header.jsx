@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { text } from '../locales/en';
-import data from '../data.json';
 
-export default function Header({ activeTab, setActiveTab }) {
+export default function Header({ activeTab, setActiveTab, currentBalance }) {
     return (
         <div className="header-top">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -30,7 +29,7 @@ export default function Header({ activeTab, setActiveTab }) {
             <div className="account-info">
                 <div className="label">{text.preferredAccount}</div>
                 <div className="balance" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    {text.currency} {data.totalBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {text.currency} {(currentBalance || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     <span style={{ fontSize: '1.2rem', opacity: 0.8 }}><i className="fas fa-eye"></i></span>
                 </div>
             </div>

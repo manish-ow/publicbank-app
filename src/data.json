@@ -1,11 +1,12 @@
 {
-    "totalBalance": 75460.10,
+    "totalBalance": 40500.10,
     "personal": {
         "savings": 14000.10,
         "fixedDeposits": 15000.00,
         "investments": 21500.40
     },
     "business": {
+        "totalBalance": 75460.10,
         "currentSavings": 34230.10,
         "currentAccount2": 26230.00,
         "fixedDepositsInvestments": 15000.00,
@@ -35,7 +36,7 @@
             },
             {
                 "name": "Seafood Supply Co",
-                "amount": 2500.00
+                "amount": 4500.00
             }
         ]
     }

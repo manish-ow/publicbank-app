@@ -15,6 +15,7 @@ function App() {
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        currentBalance={activeTab === 'personal' ? balanceData.totalBalance : balanceData.business.totalBalance}
       />
 
       <div className="scrollable-content">
