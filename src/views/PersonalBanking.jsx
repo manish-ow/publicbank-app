@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { text } from '../locales/en';
+import CashAdvanceApplication from './CashAdvanceApplication';
+import CashAdvanceSuccess from './CashAdvanceSuccess';
 
 export default function PersonalBanking({ liveData: data }) {
+    const [currentView, setCurrentView] = useState('dashboard');
+
+    if (currentView === 'apply_cash_advance') {
+        return <CashAdvanceApplication onBack={() => setCurrentView('dashboard')} onAccept={() => setCurrentView('success_cash_advance')} />;
+    }
+
+    if (currentView === 'success_cash_advance') {
+        return <CashAdvanceSuccess onFinish={() => setCurrentView('dashboard')} />;
+    }
+
     return (
         <div>
             <div className="recommendations-wrapper">
                 <div className="recommendations-title">{text.recommendations}</div>
 
-                <div className="section-card" style={{ marginBottom: '10px' }}>
+                <div className="section-card" style={{ marginBottom: '10px', cursor: 'pointer' }} onClick={() => setCurrentView('apply_cash_advance')}>
                     <h3>{text.cashAdvanceHeading}</h3>
                     <p>{text.cashAdvanceDesc}</p>
-                    <div className="link">{text.applyNow}</div>
+                    <div className="link" style={{ pointerEvents: 'none' }}>{text.applyNow}</div>
                 </div>
 
                 <div className="section-card" style={{ marginBottom: 0 }}>
