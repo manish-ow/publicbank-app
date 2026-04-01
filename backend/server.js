@@ -31,7 +31,7 @@ app.get('/api/balance', async (req, res) => {
             account = new Account({
                 accountNumber: '312345678901',
                 accountType: 'business',
-                balance: 375691.50,
+                balance: 75460.10,
                 currency: 'MYR',
                 fullName: 'Public Bank App User'
             });
@@ -108,7 +108,7 @@ async function start() {
         await Account.create({
             accountNumber: '312345678901',
             accountType: 'business',
-            balance: 375691.50,
+            balance: 75460.10,
             currency: 'MYR',
             fullName: 'Public Bank App User'
         });

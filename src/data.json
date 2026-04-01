@@ -1,5 +1,5 @@
 {
-    "totalBalance": 50050.50,
+    "totalBalance": 75460.10,
     "personal": {
         "savings": 14000.10,
         "fixedDeposits": 15000.00,
@@ -8,7 +8,7 @@
     "business": {
         "currentSavings": 34230.10,
         "currentAccount2": 26230.00,
-        "fixedDepositsInvestments": 321461.40,
+        "fixedDepositsInvestments": 15000.00,
         "cashBalance": 34230.10,
         "forecast30Days": 38540.60,
         "forecast60Days": 44521.70,
