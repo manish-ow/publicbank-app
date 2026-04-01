@@ -8,28 +8,7 @@ import './index.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('personal');
-  const [balanceData, setBalanceData] = useState(null);
-
-  useEffect(() => {
-    const vUrl = import.meta.env.VITE_API_URL;
-    const apiUrl = vUrl && vUrl !== '/' ? vUrl : 'http://localhost:3001';
-    console.log('Connecting to API at:', apiUrl);
-
-    fetch(`${apiUrl}/api/balance`)
-      .then(res => res.json())
-      .then(data => {
-        setBalanceData({
-          ...mockData,
-          totalBalance: data.totalBalance,
-          business: { ...mockData.business, ...data.business }
-        });
-      })
-      .catch(err => {
-        console.error('API Fetch Error:', err);
-      });
-  }, []);
-
-  if (!balanceData) return <div style={{ padding: 20 }}>Loading...</div>;
+  const [balanceData, setBalanceData] = useState(mockData);
 
   return (
     <div className="mobile-container">

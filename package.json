@@ -5,8 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "start": "node --env-file=.env.local backend/server.js",
-    "dev:all": "npm run start & npm run dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
