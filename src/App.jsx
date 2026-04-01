@@ -14,7 +14,8 @@ function App() {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/balance')
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    fetch(`${apiUrl}/api/balance`)
       .then(res => res.json())
       .then(data => {
         setBalanceData({
@@ -25,7 +26,7 @@ function App() {
       })
       .catch(console.error);
 
-    const socket = io('http://localhost:3001');
+    const socket = io(apiUrl);
     socket.on('balance_updated', (newData) => {
       setBalanceData(prev => ({
         ...prev,

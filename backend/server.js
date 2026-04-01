@@ -119,7 +119,7 @@ async function start() {
         console.warn('Kafka consumer failed to start, running without real-time updates:', err.message);
     });
 
-    const PORT = 3001;
+    const PORT = process.env.PORT || 3001;
     httpServer.listen(PORT, () => {
         console.log(`Backend server listening on port ${PORT}`);
     });
