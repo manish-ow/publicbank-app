@@ -76,7 +76,7 @@ export default function BusinessOverview({ onBack, onNavigate, liveData: data })
                         </div>
                     ) : (
                         <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px', marginTop: '15px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-                            You received a recent payment of {text.currency} {data.business.receivablesList[0].amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} from {data.business.receivablesList[0].name}.
+                            To Collect  {text.currency} {data.business.receivablesList[0].amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} from {data.business.receivablesList[0].name} for invoice INV-OP-2.
                         </div>
                     )}
                 </div>
