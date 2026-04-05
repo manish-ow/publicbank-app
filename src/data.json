@@ -13,12 +13,12 @@
         "cashBalance": 34230.10,
         "forecast30Days": 38540.60,
         "forecast60Days": 44521.70,
-        "toCollect": 4800.50,
+        "toCollect": 4100.00,
         "toPay": 7140.00,
         "receivablesList": [
             {
                 "name": "MNC Corporation",
-                "amount": 4800.50
+                "amount": 4100.00
             },
             {
                 "name": "Atmosphere Bistro Sdn Bhd",
